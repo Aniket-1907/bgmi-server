@@ -3,8 +3,9 @@ package com.bgmi.squad.bgmi.services;
 import com.bgmi.squad.bgmi.bean.BGMIDetails;
 import com.bgmi.squad.bgmi.bean.Player;
 import com.bgmi.squad.bgmi.bean.PlayerDTO;
-import com.bgmi.squad.bgmi.repository.BGMIRepo;
-import com.bgmi.squad.bgmi.repository.PlayerRepo;
+//import com.bgmi.squad.bgmi.repository.BGMIRepo;
+//import com.bgmi.squad.bgmi.repository.PlayerRepo;
+import com.bgmi.squad.bgmi.repository.InMemoryCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,10 @@ import java.util.List;
 @Service
 public class PlayerServicesImpl implements PlayerService {
 
-	@Autowired
-	PlayerRepo playerRepo;
-	@Autowired
-	BGMIRepo bgmiRepo;
+//	@Autowired
+//	PlayerRepo playerRepo;
+//	@Autowired
+//	BGMIRepo bgmiRepo;
 	@Override
 	public Player addPlayer(PlayerDTO playerDTO) {
 		Player player= Player.builder()
@@ -32,12 +33,12 @@ public class PlayerServicesImpl implements PlayerService {
 				.inGameName(playerDTO.getInGameName())
 				.squadName(playerDTO.getSquadName())
 				.build();
-		bgmiRepo.save(bgmiDetails);
-		return playerRepo.save(player);
+		InMemoryCache.saveBGMI(bgmiDetails);
+		return InMemoryCache.savePlayer(player);
 	}
 
 	@Override
 	public List<Player> getPlayer(String firstName) {
-		return playerRepo.findByFirstName(firstName);
+		return InMemoryCache.findByFirstName(firstName);
 	}
 }
