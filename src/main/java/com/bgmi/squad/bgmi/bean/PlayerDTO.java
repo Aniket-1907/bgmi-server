@@ -14,8 +14,8 @@ public class PlayerDTO {
 
     private String firstName;
     private String lastName;
-    private int age;
-    private int bgmiId;
+    private String age;
+    private String bgmiId;
     private String inGameName;
     private String role;
     private String squadName;

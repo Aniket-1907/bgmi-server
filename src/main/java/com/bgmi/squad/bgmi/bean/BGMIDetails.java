@@ -21,7 +21,7 @@ public class BGMIDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int bgmiId;
+    private long bgmiId;
     private String inGameName;
     private String role;
     private String squadName;
