@@ -11,4 +11,5 @@ public interface PlayerService {
 
 	Player addPlayer(PlayerDTO playerDTO);
 	List<Player> getPlayer(String firstName);
+	List<Player> getAllPlayer();
 }

@@ -41,4 +41,13 @@ public class InMemoryCache {
         }
         return list;
     }
+    public static List<Player> findAllPlayer() {
+        List<Player> list = new ArrayList<>();
+        if(playerCache==null || playerCache.isEmpty())
+            return list;
+        for (Map.Entry<Integer, Player> entry : playerCache.entrySet()) {
+                list.add(entry.getValue());
+        }
+        return list;
+    }
 }

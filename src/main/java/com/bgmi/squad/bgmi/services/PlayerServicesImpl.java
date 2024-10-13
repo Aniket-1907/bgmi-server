@@ -41,4 +41,8 @@ public class PlayerServicesImpl implements PlayerService {
 	public List<Player> getPlayer(String firstName) {
 		return InMemoryCache.findByFirstName(firstName);
 	}
+	@Override
+	public List<Player> getAllPlayer() {
+		return InMemoryCache.findAllPlayer();
+	}
 }

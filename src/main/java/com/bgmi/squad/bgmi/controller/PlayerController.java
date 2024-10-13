@@ -29,4 +29,9 @@ public class PlayerController {
     public ResponseEntity<List<Player>> getPlayer(@RequestParam String firstName) {
         return new ResponseEntity<List<Player>>(playerService.getPlayer(firstName), HttpStatusCode.valueOf(200));
     }
+    @CrossOrigin(origins = "*")
+    @RequestMapping("/getAllPlayer")
+    public ResponseEntity<List<Player>> getAllPlayer() {
+        return new ResponseEntity<List<Player>>(playerService.getAllPlayer(), HttpStatusCode.valueOf(200));
+    }
 }
